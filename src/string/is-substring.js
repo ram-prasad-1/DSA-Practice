@@ -1,0 +1,3 @@
+function isSubstring(superString, sub) {
+
+}
