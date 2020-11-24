@@ -1,3 +1,12 @@
+
+// Trick:
+// divide recursively till array length remain 1 or 2.  now start merging.
+
+// Merging sorted array:
+// Method-1: Copy arr1 in arr3 and iterate over arr2 to insert them in arr3 at right position.
+// Method-2: Traverse both arr1 and arr2 simultaneously and insert smaller to arr3
+// https://www.geeksforgeeks.org/merge-two-sorted-arrays/
+
 function mergeSort(arr) {
     if (arr.length === 1) return arr;
     if (arr.length === 2) {
