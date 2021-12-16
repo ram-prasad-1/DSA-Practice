@@ -1,12 +1,6 @@
 // typeof object
 let x = {};
-if (typeof x === 'object') {
-}
-if (typeof x === 'function') {
-}
-if (typeof x === 'undefined') {
-}
 
+let y = typeof x === 'object' || typeof x === 'function';
 Array.isArray(x);
-
-// Object
+console.log(x === undefined);
