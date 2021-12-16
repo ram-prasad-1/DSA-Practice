@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "*.{js,jsx}": "prettier --write --ignore-unknown"
   },
   "devDependencies": {
     "husky": "^7.0.4",
