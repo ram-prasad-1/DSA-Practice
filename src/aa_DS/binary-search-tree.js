@@ -1,6 +1,4 @@
-const { randArray } = require('../utils');
-const { doTimes } = require('../utils');
-const { randInt, log } = require('../utils');
+const { randInt, log, doReps } = require('../utils');
 
 class Node {
   constructor(value) {
@@ -52,5 +50,5 @@ class BinarySearchTree {
 
 const bt = new BinarySearchTree(randInt());
 
-doTimes(() => bt.insert(randInt()), 5);
+doReps(() => bt.insert(randInt()), 5);
 log(bt);

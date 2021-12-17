@@ -29,7 +29,7 @@ const randStr = (length = 8, allow_duplicate = false) => {
   return str.slice(0, length);
 };
 
-const doTimes = (callback, number) => [...Array(number)].map(() => callback());
+const doReps = (callback, number) => [...Array(number)].map(() => callback());
 
 module.exports = {
   log,
@@ -37,5 +37,5 @@ module.exports = {
   randMinMax,
   randArray,
   randStr,
-  doTimes,
+  doReps,
 };
