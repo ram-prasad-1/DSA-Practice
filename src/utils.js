@@ -9,10 +9,10 @@ const log = obj => {
 const randInt = (max = 100) => Math.floor(Math.random() * max + 1);
 
 // [min, max]
-const randMinMax = (min = 0, max = 100) => min + Math.floor(Math.random() * (max - min) + 1);
+const randMinMax = (min = 0, max = 100) => min + Math.floor(Math.random() * (max + 1 - min));
 
-const randArray = (length = 10, getRandomValue = randInt) =>
-  [...Array(length)].map(() => getRandomValue());
+const randArray = (length = 10, min = 1, max = 100) =>
+  [...Array(length)].map(() => randMinMax(min, max));
 
 const getShuffled = arr => {
   return arr

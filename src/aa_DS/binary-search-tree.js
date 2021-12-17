@@ -52,8 +52,5 @@ class BinarySearchTree {
 
 const bt = new BinarySearchTree(randInt());
 
-// doTimes(() => bt.insert(randInt()), 5)
-// log(bt)
-
-doTimes(() => randInt(), 10);
-log(randArray());
+doTimes(() => bt.insert(randInt()), 5);
+log(bt);
