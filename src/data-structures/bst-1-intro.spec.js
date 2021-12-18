@@ -9,7 +9,7 @@ it('should insert', function () {
   doReps(() => bt.insert(items.shift()), items.length);
 
   const arr = [];
-  bt.preOrder(node => {
+  bt.traverse(node => {
     arr.push(node.value);
   });
   console.log(arr);

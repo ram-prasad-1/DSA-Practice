@@ -1,3 +1,6 @@
+`
+
+`;
 class BinarySearchTree {
   constructor() {
     this.root = null;
@@ -43,18 +46,32 @@ class BinarySearchTree {
     }
   }
 
-  traverse(nodeOperation) {
-    this._inOrder(this.root, nodeOperation);
+  traverse(operation) {
+    this._inOrder(this.root, operation);
   }
 
-  _inOrder(node, nodeOperation) {
+  _inOrder(node, operation) {
     if (node === null) {
       return;
     }
-    this._inOrder(node.left, nodeOperation);
-    // for preOrder, move nodeOperation above and so on
-    nodeOperation(node);
-    this._inOrder(node.right, nodeOperation);
+    this._inOrder(node.left, operation);
+    // for preOrder, move operation above and so on
+    operation(node);
+    this._inOrder(node.right, operation);
+  }
+
+  bfsTraverse(nodeOp) {
+    if (this.root === null) return;
+    const queue = [this.root];
+
+    while (queue.length !== 0) {
+      // dequeue
+      const current = queue.shift();
+      nodeOp(current);
+      // enqueue
+      current.left && queue.push(current.left);
+      current.right && queue.push(current.right);
+    }
   }
 }
 
