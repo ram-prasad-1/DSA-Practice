@@ -5,7 +5,7 @@ const log = obj => {
   console.log(util.inspect(obj, { showHidden: false, depth: null, colors: true }));
 };
 
-const doReps = (callback, number) => [...Array(number)].map(() => callback());
+const doReps = (callback, times) => [...Array(times)].map(() => callback());
 
 const popRandom = arr => {
   if (arr.length === 0) return null;

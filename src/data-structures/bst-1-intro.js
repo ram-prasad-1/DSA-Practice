@@ -43,7 +43,19 @@ class BinarySearchTree {
     }
   }
 
-  prettyPrint() {}
+  traverse(nodeOperation) {
+    this._inOrder(this.root, nodeOperation);
+  }
+
+  _inOrder(node, nodeOperation) {
+    if (node === null) {
+      return;
+    }
+    this._inOrder(node.left, nodeOperation);
+    // for preOrder, move nodeOperation above and so on
+    nodeOperation(node);
+    this._inOrder(node.right, nodeOperation);
+  }
 }
 
 class Node {
