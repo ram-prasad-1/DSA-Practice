@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prettier": "prettier --write 'src/**/*.{js,jsx}'",
     "test": "jest",
     "prepare": "husky install"
   },

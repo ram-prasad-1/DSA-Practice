@@ -73,6 +73,12 @@ class BinarySearchTree {
       current.right && queue.push(current.right);
     }
   }
+
+  deleteNode(value) {
+    this._deleteNode(this.root, value);
+  }
+
+  _deleteNode(node, value) {}
 }
 
 class Node {
