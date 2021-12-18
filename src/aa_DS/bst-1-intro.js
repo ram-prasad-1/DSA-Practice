@@ -20,7 +20,9 @@ class BinarySearchTree {
   _insert(currentNode, newValue) {
     if (currentNode === null) {
       return new Node(newValue);
-    } else if (newValue <= currentNode.value) {
+    }
+
+    if (newValue <= currentNode.value) {
       currentNode.left = this._insert(currentNode.left, newValue);
     } else {
       currentNode.right = this._insert(currentNode.right, newValue);
@@ -34,10 +36,10 @@ class BinarySearchTree {
 
   _search(currentNode, value) {
     if (currentNode == null) {
-      return false;
+      return null;
     }
     if (value === currentNode.value) {
-      return true;
+      return currentNode;
     }
 
     if (value <= currentNode.value) {
@@ -46,6 +48,11 @@ class BinarySearchTree {
       return this._search(currentNode.right, value);
     }
   }
+
+  deleteNode(value) {}
+
+  //
+  _deleteNode(currentNode, value) {}
 }
 
 const bt = new BinarySearchTree(randInt());
