@@ -1,6 +1,18 @@
+const { randInt } = require('./random');
+
 const log = obj => {
   const util = require('util');
   console.log(util.inspect(obj, { showHidden: false, depth: null, colors: true }));
+};
+
+const doReps = (callback, number) => [...Array(number)].map(() => callback());
+
+const popRandom = arr => {
+  if (arr.length === 0) return null;
+  const index = randInt() % arr.length;
+  const value = arr[index];
+  arr.splice(index, 1);
+  return value;
 };
 
 const getShuffledArray = arr => {
@@ -10,10 +22,9 @@ const getShuffledArray = arr => {
     .map(({ value }) => value);
 };
 
-const doReps = (callback, number) => [...Array(number)].map(() => callback());
-
 module.exports = {
   log,
   doReps,
   getShuffledArray,
+  popRandom,
 };

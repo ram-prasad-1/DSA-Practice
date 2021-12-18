@@ -1,5 +1,3 @@
-const { randInt, log, doReps } = require('../utils/utils');
-
 class Node {
   constructor(value) {
     this.value = value;
@@ -48,14 +46,9 @@ class BinarySearchTree {
       return this._search(currentNode.right, value);
     }
   }
-
-  deleteNode(value) {}
-
-  //
-  _deleteNode(currentNode, value) {}
 }
 
-const bt = new BinarySearchTree(randInt());
-
-doReps(() => bt.insert(randInt()), 5);
-log(bt);
+module.exports = {
+  Node,
+  BinarySearchTree,
+};

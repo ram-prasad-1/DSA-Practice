@@ -1,8 +1,4 @@
-const faker = require('faker');
-const { nanoid, customAlphabet } = require('nanoid');
-const { log, doReps, getShuffledArray } = require('./src/utils/utils');
-const { randInt, randStr, randIntArray } = require('./src/utils/random');
-
+// Source: https://gist.github.com/subeeshb/dd338088ab04607b18a1
 /**
  * A binary search tree implementation in JavaScript. This implementation
  * does not allow duplicate values to be inserted into the tree, ensuring

@@ -1,20 +1,14 @@
-const { randInt, log, doReps } = require('../utils/utils');
-
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.left = null;
-    this.right = null;
-  }
-}
-
 class BinarySearchTree {
-  constructor(rootValue) {
-    this.root = new Node(rootValue);
+  constructor() {
+    this.root = null;
   }
 
   insert(newValue) {
-    this._insert(this.root, newValue);
+    if (this.root === null) {
+      this.root = new Node(newValue);
+    } else {
+      this._insert(this.root, newValue);
+    }
   }
 
   _insert(currentNode, newValue) {
@@ -36,10 +30,10 @@ class BinarySearchTree {
 
   _search(currentNode, value) {
     if (currentNode == null) {
-      return null;
+      return false;
     }
     if (value === currentNode.value) {
-      return currentNode;
+      return true;
     }
 
     if (value <= currentNode.value) {
@@ -49,13 +43,18 @@ class BinarySearchTree {
     }
   }
 
-  deleteNode(value) {}
-
-  //
-  _deleteNode(currentNode, value) {}
+  prettyPrint() {}
 }
 
-const bt = new BinarySearchTree(randInt());
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
 
-doReps(() => bt.insert(randInt()), 5);
-log(bt);
+module.exports = {
+  Node,
+  BinarySearchTree,
+};
