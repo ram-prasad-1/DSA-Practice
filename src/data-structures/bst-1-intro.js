@@ -1,4 +1,4 @@
-const { randInt, log, doReps } = require('../utils');
+const { randInt, log, doReps } = require('../utils/utils');
 
 class Node {
   constructor(value) {
