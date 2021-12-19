@@ -1,5 +1,3 @@
-const None = Symbol('none');
-
 const log = obj => {
   const util = require('util');
   console.log(util.inspect(obj, { showHidden: false, depth: null, colors: true }));
@@ -24,7 +22,6 @@ const getShuffledArray = arr => {
 };
 
 module.exports = {
-  None,
   log,
   doReps,
   getShuffledArray,
