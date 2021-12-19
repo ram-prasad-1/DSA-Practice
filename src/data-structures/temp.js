@@ -1,4 +1,4 @@
-const { BinarySearchTree, Node } = require('./bst-1-intro');
+const { BinarySearchTree, Node } = require('./bst');
 const { randInt } = require('../utils/random');
 const { doReps, log, popStart } = require('../utils/utils');
 

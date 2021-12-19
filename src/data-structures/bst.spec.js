@@ -1,4 +1,4 @@
-const { BinarySearchTree, Node } = require('./bst-1-intro');
+const { BinarySearchTree, Node } = require('./bst');
 const { doReps, log } = require('../utils/utils');
 
 const intItems = [50, 32, 26, 42, 12, 65, 79, 59, 18, 84, 77];
