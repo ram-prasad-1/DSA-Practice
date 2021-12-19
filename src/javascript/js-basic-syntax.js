@@ -8,7 +8,7 @@ Turn other data types into an array and for array:
     - Use for..of otherwise
         * Use arr.entries() if required
 
-For all other iteration purposes use while loop.
+For other use cases, try while or for-i loop
 
 
 To Array:
