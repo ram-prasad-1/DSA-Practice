@@ -2,6 +2,8 @@ const { BaseBinarySearchTree, Node } = require('./helpers/base-bst');
 
 `
 Trick: Keep traversing to Left and right nodes if they are there. Return when node itself is null.
+
+Tree Modification Trick: always return the same node and assign to the same node
 `;
 
 class BinarySearchTree extends BaseBinarySearchTree {
@@ -57,14 +59,13 @@ class BinarySearchTree extends BaseBinarySearchTree {
       return true;
     }
 
-    if (value <= currentNode.value) {
+    if (value < currentNode.value) {
       return this._search(currentNode.left, value);
     } else {
       return this._search(currentNode.right, value);
     }
   }
 
-  // Traverse Trick: always return the same node and assign to the same node
   traverse(operation) {
     this._inOrder(this.root, operation);
   }
@@ -97,7 +98,40 @@ class BinarySearchTree extends BaseBinarySearchTree {
     this._deleteNode(this.root, value);
   }
 
-  _deleteNode(node, value) {}
+  _deleteNode(node, value) {
+    if (node === null) return node;
+
+    // traverse to the node
+    if (value < node.value) {
+      node.left = this._deleteNode(node.left, value);
+    } else if (value > node.value) {
+      node.right = this._deleteNode(node.right, value);
+    } else {
+      // this handles both single child and no child
+      if (node.left === null) {
+        // this works because we have received the node but returning its child
+        return node.right;
+      } else if (node.right === null) {
+        return node.left;
+      } else {
+        // node with 2 children
+        // get the value of inorder successor and then delete the successor.
+        node.value = this.getNodeSmallestValue(node.right);
+        node.right = this._deleteNode(node.right, node.value);
+      }
+    }
+
+    return node;
+  }
+
+  getNodeSmallestValue(node) {
+    let smallest = node.value;
+    while (node.left != null) {
+      smallest = node.left.value;
+      node = node.left;
+    }
+    return smallest;
+  }
 }
 
 module.exports = {
