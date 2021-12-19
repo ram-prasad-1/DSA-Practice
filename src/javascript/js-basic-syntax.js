@@ -29,6 +29,14 @@ if has property/item:
 // generate array of n items
 [...Array(n)].map(() => {});
 
+// object
+let obj = {
+  name: 'John',
+  logger() {},
+};
+obj.prop = 9;
+obj['prop-2'] = 99;
+
 // type
 let y = typeof x === 'object'; // object, function, boolean, string, number
 // typeof null === 'object'; => true
