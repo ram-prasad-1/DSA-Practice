@@ -7,8 +7,8 @@ it('should insert', function () {
   const bt = new BinarySearchTree();
   doReps(() => bt.insert(intItems.shift()), intItems.length);
 
-  const a = bt.getTrioPerNodes();
-  console.log(a);
+  const a = bt.prettyPrint();
+  // console.log(a);
 
   // const arr = [];
   // bt.traverse(node => {

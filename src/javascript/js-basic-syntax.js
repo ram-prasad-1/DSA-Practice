@@ -1,4 +1,5 @@
 let x = {};
+let n = 8;
 
 `
 basic iteration:
@@ -13,7 +14,8 @@ For all other iteration purposes use while loop.
 To Array:
     - from 2d: Object.entries()
     - from 1d: Array.from(str/set)
-``
+
+--------
 if has property/item:
 1. 2D Object:
     obj.hasOwnProperty()
@@ -23,6 +25,9 @@ if has property/item:
     - str.includes(), arr.includes(), set.has()
     - To get index: indexOf(), lastIndexOf()
 `;
+
+// generate array of n items
+[...Array(n)].map(() => {});
 
 // type
 let y = typeof x === 'object'; // object, function, boolean, string, number

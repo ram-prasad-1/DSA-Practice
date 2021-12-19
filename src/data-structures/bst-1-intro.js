@@ -78,6 +78,52 @@ class BinarySearchTree {
 
   prettyPrint() {
     const trioArray = this.getTrioPerNodes();
+    if (trioArray.length === 0) {
+      console.log(null);
+    }
+
+    let rootIndex = -1;
+    for (const [index, trio] of trioArray.entries()) {
+      trio[0] = trio[0] || ' ';
+      trio[2] = trio[2] || ' ';
+
+      if (this.root.value === trio[1]) {
+        rootIndex = index;
+      }
+    }
+
+    const PADDING = 8;
+    const TRIO_LENGTH = 10;
+    const getSpaces = count => [...Array(count)].map(() => ' ').join('');
+    const withFilledSpaces = trioStr => {
+      if (trioStr.length < TRIO_LENGTH) {
+        trioStr += getSpaces(TRIO_LENGTH - trioStr.length);
+      }
+      return trioStr;
+    };
+
+    let left = rootIndex - 1;
+    let right = rootIndex + 1;
+
+    let str =
+      getSpaces(PADDING) + withFilledSpaces(`[${trioArray[rootIndex]}]`) + getSpaces(PADDING);
+    let rowStr = '';
+
+    while (left >= 0 || right < trioArray.length) {
+      if (left >= 0) {
+        rowStr = withFilledSpaces(`[${trioArray[left]}]`);
+        left -= 1;
+      }
+      rowStr += getSpaces(PADDING);
+      if (right < trioArray.length) {
+        rowStr += withFilledSpaces(`[${trioArray[right]}]`);
+        right += 1;
+      }
+
+      str += '\n' + rowStr;
+    }
+
+    console.log(str);
   }
 
   getTrioPerNodes() {
