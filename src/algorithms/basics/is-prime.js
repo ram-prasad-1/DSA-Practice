@@ -1,3 +1,7 @@
+`
+Prime Numbers: 2, 3, 5, 7, ...
+All prime numbers take the form of 6k±1, for ∀ k >= 1
+`;
 function isPrime(n) {
   if (n <= 1) return false;
   if (n <= 3) return true;

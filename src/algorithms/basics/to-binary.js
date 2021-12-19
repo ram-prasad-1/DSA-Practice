@@ -8,3 +8,15 @@ function toBinary(n) {
   }
   return result;
 }
+
+function toDecimal(binary) {
+  let result = 0;
+  let i = binary.length - 1;
+  while (i >= 0) {
+    result += Math.pow(2, binary.length - 1 - i) * +binary[i];
+    i -= 1;
+  }
+  return result;
+}
+
+console.log(toDecimal('1111'));
