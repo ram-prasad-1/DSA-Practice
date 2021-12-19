@@ -1,9 +1,27 @@
 const { BaseBinarySearchTree, Node } = require('./helpers/base-bst');
 
+`
+Trick: Keep traversing to Left and right nodes if they are there. Return when node itself is null.
+`;
+
 class BinarySearchTree extends BaseBinarySearchTree {
   constructor() {
     super();
     this.root = null;
+  }
+
+  addToArray(node, arr) {
+    if (node === null) return;
+
+    if (node.left) {
+      this.addToArray(node.left, arr);
+    }
+
+    arr.push(node.value);
+
+    if (node.right) {
+      this.addToArray(node.right, arr);
+    }
   }
 
   insert(newValue) {
@@ -14,7 +32,6 @@ class BinarySearchTree extends BaseBinarySearchTree {
     }
   }
 
-  // trick: start with plain slate. now insert existing with new one as well.
   _insert(node, newValue) {
     if (node === null) {
       return new Node(newValue);
@@ -47,6 +64,7 @@ class BinarySearchTree extends BaseBinarySearchTree {
     }
   }
 
+  // Traverse Trick: always return the same node and assign to the same node
   traverse(operation) {
     this._inOrder(this.root, operation);
   }

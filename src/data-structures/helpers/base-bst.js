@@ -72,7 +72,7 @@ class BaseBinarySearchTree {
   }
 
   _getTrioPerNodes(node, arr) {
-    if (node === null) return null;
+    if (node === null) return node; // returns null only
     const trio = [null, null, null];
 
     if (node.left) {
