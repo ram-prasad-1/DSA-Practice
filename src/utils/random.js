@@ -1,5 +1,3 @@
-const { customAlphabet } = require('nanoid');
-
 `
 Others:
 faker.lorem.slug(3)
@@ -26,6 +24,7 @@ const randIntArray = (length = 10, options = { min: 0, max: 99 }) =>
   [...Array(length)].map(() => randInt(options));
 
 const randStr = (length = 8, allow_duplicate = false) => {
+  const { customAlphabet } = require('nanoid');
   // import here to avoid circular dependency
   const { getShuffledArray } = require('./utils');
   const characterSpace = 'abcdefghijklmnopqrstuvwxyz';

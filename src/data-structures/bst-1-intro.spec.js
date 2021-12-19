@@ -1,14 +1,19 @@
 const { BinarySearchTree, Node } = require('./bst-1-intro');
-const { intItems } = require('../utils/data');
 const { doReps, log } = require('../utils/utils');
+
+const intItems = [50, 32, 26, 42, 12, 65, 79, 59, 18, 84, 77];
 
 it('should insert', function () {
   const bt = new BinarySearchTree();
   doReps(() => bt.insert(intItems.shift()), intItems.length);
 
-  const arr = [];
-  bt.traverse(node => {
-    arr.push(node.value);
-  });
-  console.log(arr);
+  const a = bt.getTrioPerNodes();
+  console.log(a);
+
+  // const arr = [];
+  // bt.traverse(node => {
+  //   arr.push(node.value);
+  // });
+  // log(bt);
+  // console.log(arr);
 });

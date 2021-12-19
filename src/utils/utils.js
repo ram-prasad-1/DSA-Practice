@@ -1,4 +1,4 @@
-const { randInt } = require('./random');
+const None = Symbol('none');
 
 const log = obj => {
   const util = require('util');
@@ -8,6 +8,7 @@ const log = obj => {
 const doReps = (callback, times) => [...Array(times)].map(() => callback());
 
 const popRandom = arr => {
+  const { randInt } = require('./random');
   if (arr.length === 0) return null;
   const index = randInt() % arr.length;
   const value = arr[index];
@@ -23,6 +24,7 @@ const getShuffledArray = arr => {
 };
 
 module.exports = {
+  None,
   log,
   doReps,
   getShuffledArray,

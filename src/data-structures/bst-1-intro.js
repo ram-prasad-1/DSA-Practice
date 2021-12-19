@@ -1,6 +1,7 @@
 `
 
 `;
+
 class BinarySearchTree {
   constructor() {
     this.root = null;
@@ -14,6 +15,7 @@ class BinarySearchTree {
     }
   }
 
+  // trick: start with plain slate. now insert existing with new one as well.
   _insert(currentNode, newValue) {
     if (currentNode === null) {
       return new Node(newValue);
@@ -72,6 +74,41 @@ class BinarySearchTree {
       current.left && queue.push(current.left);
       current.right && queue.push(current.right);
     }
+  }
+
+  prettyPrint() {
+    const trioArray = this.getTrioPerNodes();
+  }
+
+  getTrioPerNodes() {
+    const trioArray = [];
+    this._getTrioPerNodes(this.root, trioArray);
+    trioArray.sort((a, b) => {
+      if (trioArray.length <= 1) {
+        return 1;
+      }
+      return a[1] - b[1];
+    });
+    return trioArray;
+  }
+
+  _getTrioPerNodes(node, arr) {
+    if (node === null) return null;
+    const trio = [null, null, null];
+
+    if (node.left) {
+      trio[0] = this._getTrioPerNodes(node.left, arr);
+    }
+
+    trio[1] = node.value;
+
+    if (node.right) {
+      trio[2] = this._getTrioPerNodes(node.right, arr);
+    }
+    if (node.left !== null || node.right !== null) {
+      arr.push(trio);
+    }
+    return node.value;
   }
 
   deleteNode(value) {
