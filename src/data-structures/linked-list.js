@@ -1,11 +1,23 @@
 class Node {
-  aa = 99;
-  constructor() {
-    this.tt = 66;
+  constructor(value) {
+    this.value = value;
+    this.next = null;
   }
 }
 
-const a = new Node();
-a.aa = 666;
-const b = new Node();
-console.log(b);
+class LinkedList {
+  constructor() {
+    this.head = null;
+  }
+
+  addLast(newValue) {
+    if (this.head === null) {
+      this.head = new Node(newValue);
+    }
+    let currentNode = this.head;
+    while (currentNode.next !== null) {
+      currentNode = currentNode.next;
+    }
+    currentNode.next = new Node(newValue);
+  }
+}
