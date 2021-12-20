@@ -9,14 +9,13 @@ function getPowerSet(arr) {
 }
 
 function _makePowerSet(path = [], selectionList, result) {
-  for (const selection of selectionList) {
-    path.push(selection);
+  result.push([...path]);
 
-    _makePowerSet(path, selectionList.slice(1));
+  for (const [index, selection] of selectionList.entries()) {
+    path.push(selection);
+    _makePowerSet(path, selectionList.slice(index + 1), result);
     path.pop();
   }
 }
 
-const swap = (arr, a, b) => ([arr[b], arr[a]] = [arr[a], arr[b]]);
-
-const arr = [34, 64, 75];
+console.log(getPowerSet([34, 64, 75]));
