@@ -24,6 +24,20 @@ if has property/item:
     String and array has same api
     - str.includes(), arr.includes(), set.has()
     - To get index: indexOf(), lastIndexOf()
+
+--------
+Array
+
+Remove items in-place: arr.splice()
+Get new array with some items removed: arr.filter()
+    - Create a slice: arr.slice()
+
+Get a mapped array: arr.map()
+
+From Array:
+    - to String: arr.join()
+    - to Set: new Set(arr)
+
 `;
 
 // generate array of n items
