@@ -4,12 +4,11 @@ let n = 8;
 `
 basic iteration:
 Turn other data types into an array and for array:
-    - Use arr.forEach() if no termination is required
-    - Use for..of otherwise
+    - Use for..of
         * Use arr.entries() if required
-    - Use for..i if need to start looping from middle
+    - Use for..i or while loop if need to jump indexes while looping
 
-For other use cases, try while or for-i loop
+For indefinite looping, use while loop
 
 
 To Array:

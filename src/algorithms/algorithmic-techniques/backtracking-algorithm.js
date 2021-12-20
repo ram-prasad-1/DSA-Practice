@@ -14,22 +14,28 @@ function related() {
 function getPermutations(arr) {
   const result = [];
   _addPermutations([], arr, result);
+
   return result;
 }
 
-// Tip: path is a stack
 function _addPermutations(path = [], selectionList = [], result = []) {
+  console.log(path, selectionList);
   if (selectionList.length === 0) {
     result.push([...path]);
   }
 
-  for (const selection of selectionList) {
+  // for permutation, select means: fix this and permute the rest
+  for (const [selectIndex, selection] of selectionList.entries()) {
     path.push(selection);
-    _addPermutations(path, selectionList.slice(1), result);
+    _addPermutations(
+      path,
+      selectionList.filter((_, i) => i !== selectIndex),
+      result
+    );
     path.pop();
   }
 }
 
 const data = [...Array(3)].map((_, i) => i + 1);
 const p = getPermutations(data);
-console.log(p.length);
+console.log(p);
