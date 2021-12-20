@@ -19,9 +19,7 @@ function addPermutations(array = [], start = 0, result = []) {
   }
 }
 
-function swap(array, from, to) {
-  [array[from], array[to]] = [array[to], array[from]];
-}
+const swap = (arr, a, b) => ([arr[b], arr[a]] = [arr[a], arr[b]]);
 
 const data = [...Array(3)].map((_, i) => i + 1);
 const p = [];

@@ -15,23 +15,26 @@ function getFibNum(n) {
 }
 
 function getFibNumOptimized(n) {
-  const memory = [1, 1];
-  for (let i = 2; i <= n - 1; i++) {
-    memory[i] = memory[i - 1] + memory[i - 2];
+  let current = 1;
+  let prev = 1;
+  let prevToPrev = 1;
+  for (let i = 3; i <= n; i++) {
+    current = prev + prevToPrev;
+    prevToPrev = prev;
+    prev = current;
   }
 
-  return memory[n - 1];
+  return current;
 }
 
-function getFibNumOptimizedTopDown(n) {
+function getFibNumOptimizedTopDown(n, cache = {}) {
   if (n === 1 || n === 2) return 1;
 
-  const cache = {};
   if (!cache[n]) {
-    cache[n] = getFibNumOptimizedTopDown(n - 1) + getFibNumOptimizedTopDown(n - 2);
+    cache[n] = getFibNumOptimizedTopDown(n - 1, cache) + getFibNumOptimizedTopDown(n - 2, cache);
   }
 
   return cache[n];
 }
 
-console.log(getFibNumOptimizedTopDown(7) === getFibNum(7), getFibNumOptimizedTopDown(7));
+console.log(getFibNumOptimized(7) === getFibNum(7), getFibNumOptimized(7), getFibNum(7));
