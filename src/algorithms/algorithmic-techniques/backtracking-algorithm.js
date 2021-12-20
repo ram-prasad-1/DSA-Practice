@@ -1,10 +1,12 @@
 `
+
+See: https://labuladong.gitbook.io/algo-en/iii.-algorithmic-thinking/detailsaboutbacktracking
+
 def backtrack(path, seletionsList):
     for seletion in seletionsList:
         select
         backtrack(path, selectionList.slice(1))
         deselect
-See: https://labuladong.gitbook.io/algo-en/iii.-algorithmic-thinking/detailsaboutbacktracking
 `;
 
 function related() {
