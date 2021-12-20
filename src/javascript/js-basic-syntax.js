@@ -40,16 +40,19 @@ From Array:
 
 `;
 
-// generate array of n items
-[...Array(n)].map(() => {});
-
-// object
+// Object
+// object literal syntax
 let obj = {
+  // Property names are automatically coerced into a string. Value can be anything including functions
+  // Quotes can be omitted if the property name is a numeric literal or a valid identifier
   name: 'John',
   logger() {},
+  // computed property name
+  [x]: 111,
 };
 obj.prop = 9;
 obj['prop-2'] = 99;
+obj[x] = 10; // computed property name
 
 // type
 let y = typeof x === 'object'; // object, function, boolean, string, number
@@ -75,3 +78,11 @@ switch (x) {
   default:
     console.log('last');
 }
+
+// Mix snippets
+
+// generate array of n items
+[...Array(n)].map(() => {});
+
+// swap
+const swap = (arr, a, b) => ([arr[b], arr[a]] = [arr[a], arr[b]]);
