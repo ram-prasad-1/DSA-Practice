@@ -14,6 +14,7 @@ For indefinite looping, use while loop
 To Array:
     - from 2d: Object.entries()
     - from 1d: Array.from(str/set)
+Trick: Only static methods you need to remember are converting to an array methods.
 
 --------
 if has property/item:
