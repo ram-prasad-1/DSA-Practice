@@ -1,8 +1,5 @@
 `
 Expand Around Center Approach: O(n^2)
-
-Manacher’s Algorithm --> O(n):
-https://www.geeksforgeeks.org/manachers-algorithm-linear-time-longest-palindromic-substring-part-1/
 `;
 const longestPalindrome = function (str) {
   if (str.length <= 1) return str;
