@@ -12,8 +12,8 @@ function getMaxValue(weights, values, weightCapacity) {
     if (start > values.length - 1 || capacityLeft === 0) {
       return 0;
     }
-    let include = values[start] + _getMaxValue(start + 1, capacityLeft - weights[start]);
-    let exclude = _getMaxValue(start + 1, capacityLeft);
+    const include = values[start] + _getMaxValue(start + 1, capacityLeft - weights[start]);
+    const exclude = _getMaxValue(start + 1, capacityLeft);
 
     return Math.max(include, exclude);
   };
