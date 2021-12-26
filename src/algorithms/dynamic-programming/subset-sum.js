@@ -1,11 +1,13 @@
 `
+find the subset of an array of whole numbers with sum equal to a given target
 https://www.youtube.com/watch?v=tRpkluGqINc
 `;
 
 function isScorePossible(arr, targetScore) {
   // 2D array = An array of rows
-  const rowEntry = [...Array(targetScore + 1)].map(() => -1);
-  const table = [...Array(arr.length + 1)].map(() => Array.from(rowEntry));
+  const table = Array(arr.length + 1)
+    .fill(null)
+    .map(() => Array(targetScore + 1).fill(-1));
 
   // i represents an index in the set of empty set + the given set
   // j represents a score
