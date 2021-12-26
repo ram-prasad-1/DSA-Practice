@@ -8,3 +8,4 @@
 
 ### [PepCoding](https://www.youtube.com/playlist?list=PL-Jc9J83PIiG8fE6rj9F5a6uyQ5WPdqKy)
 
+[Target Sum Subsets](https://www.youtube.com/watch?v=tRpkluGqINc)

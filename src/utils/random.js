@@ -15,7 +15,7 @@ const randInt = (options = 99) => {
   return _randMinMax(options);
 };
 
-const _randMinMax = options => {
+const _randMinMax = (options) => {
   const { min, max } = options;
   return min + Math.floor(Math.random() * (max + 1 - min));
 };

@@ -27,8 +27,8 @@ class BaseBinarySearchTree {
 
     const PADDING = 8;
     const TRIO_LENGTH = 10;
-    const getSpaces = count => [...Array(count)].map(() => ' ').join('');
-    const withFilledSpaces = trioStr => {
+    const getSpaces = (count) => [...Array(count)].map(() => ' ').join('');
+    const withFilledSpaces = (trioStr) => {
       if (trioStr.length < TRIO_LENGTH) {
         trioStr += getSpaces(TRIO_LENGTH - trioStr.length);
       }
