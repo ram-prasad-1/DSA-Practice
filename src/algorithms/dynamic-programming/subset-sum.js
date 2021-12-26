@@ -4,13 +4,13 @@ https://www.youtube.com/watch?v=tRpkluGqINc
 
 function isScorePossible(arr, targetScore) {
   // 2D array = An array of rows
-  const rowEntry = [...Array(targetScore + 1)].map(() => false);
-  const table = [...Array(arr.length + 1)].map(() => rowEntry);
+  const rowEntry = [...Array(targetScore + 1)].map(() => -1);
+  const table = [...Array(arr.length + 1)].map(() => Array.from(rowEntry));
 
   // i represents an index in the set of empty set + the given set
   // j represents a score
-  for (const i of table.keys()) {
-    for (const j of table[0].keys()) {
+  for (let i = 0; i < table.length; i++) {
+    for (let j = 0; j < table[0].length; j++) {
       if (i === 0 && j === 0) {
         // empty set, 0 score
         table[i][j] = true;
@@ -35,4 +35,4 @@ function isScorePossible(arr, targetScore) {
   return table[arr.length][targetScore];
 }
 
-console.log(isScorePossible([1, 3, 6], 5));
+console.log(isScorePossible([1, 3, 2], 5));
