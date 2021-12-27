@@ -10,7 +10,7 @@ function isScorePossible(arr, targetScore) {
   // i -> a score
   for (let i = 1; i < sumPossibleArr.length; i++) {
     for (let j = 0; j < arr.length; j++) {
-      if (arr[j] <= i) {
+      if (i >= arr[j]) {
         sumPossibleArr[i] = sumPossibleArr[i] || sumPossibleArr[i - arr[j]];
       }
       if (sumPossibleArr[i]) {
