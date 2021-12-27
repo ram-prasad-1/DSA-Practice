@@ -4,21 +4,23 @@ https://www.youtube.com/watch?v=jgps7MXtKRQ
 `;
 
 function isScorePossible(arr, targetScore) {
-  // const scores = Array(targetScore + 1).fill(false);
-  // scores[0] = true; // by default zero score
-  //
-  // // Trick: keep on building optimal substructures starting with smallest set
-  // for (let i = 0; i < arr.length; i++) {
-  //   for (let j = 0; j < scores.length; j++) {
-  //     const val = arr[i];
-  //     if (j >= val) {
-  //       // checks both the cases: 1. item included and item 2. item excluded
-  //       scores[j] = scores[j - val] || scores[j];
-  //     }
-  //   }
-  // }
-  //
-  // return scores[scores.length - 1];
+  const sumPossibleArr = Array(targetScore + 1).fill(false);
+  sumPossibleArr[0] = true; // by default zero score
+
+  // i -> a score
+  for (let i = 1; i < sumPossibleArr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[j] <= i) {
+        sumPossibleArr[i] = sumPossibleArr[i] || sumPossibleArr[i - arr[j]];
+      }
+      if (sumPossibleArr[i]) {
+        break;
+      }
+    }
+    sumPossibleArr[i] = sumPossibleArr[i] || false;
+  }
+
+  return sumPossibleArr[sumPossibleArr.length - 1];
 }
 
-console.log(isScorePossible([6, 3, 2, 4], 7));
+console.log(isScorePossible([6, 3, 4, 5], 1));
