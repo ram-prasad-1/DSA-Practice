@@ -23,11 +23,14 @@ function isScorePossible(arr, targetScore) {
         // 0 score
         table[i][j] = true;
       } else {
-        if (table[i - 1][j] === true) {
+        const val = arr[i - 1];
+        // Qn: To include it or not?
+        // Only include if we have enough capacity left and outcome becomes desirable
+        // otherwise just carry forward.
+        if (j >= val && table[i - 1][j - val] === true) {
           table[i][j] = true;
         } else {
-          const playerRuns = arr[i - 1];
-          table[i][j] = table[i - 1][j - playerRuns] === true;
+          table[i][j] = table[i - 1][j];
         }
       }
     }
