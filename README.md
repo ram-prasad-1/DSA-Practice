@@ -14,3 +14,8 @@
 
 ### [PepCoding Resources](https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy)
 
+## System Design
+
+[Amazon System Design Preparation (SIP)](https://www.youtube.com/watch?v=gf8R7sgme6o)
+
+
