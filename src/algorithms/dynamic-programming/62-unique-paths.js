@@ -1,4 +1,9 @@
+`
+https://www.youtube.com/watch?v=zQ6lx5tZ1Xw
+`;
+
 function findUniquePaths(m, n) {
+  // dp[i][j] = Unique paths till dp[i][j]
   const dp = Array(m)
     .fill(null)
     .map(() => Array(n).fill(null));
