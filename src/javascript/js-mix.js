@@ -4,3 +4,17 @@ const list = [user];
 user = null;
 
 console.log(list); // prints [{name: 'virat'}]
+
+// A nested function's this is not tied to the parent this. Consider it separately
+const obj = {
+  answer: 42,
+  log() {
+    console.log(this.answer);
+    function inner() {
+      console.log(this.answer);
+    }
+    inner();
+  },
+};
+
+obj.log();
