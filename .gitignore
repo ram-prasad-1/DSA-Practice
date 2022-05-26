@@ -3,6 +3,8 @@
 # Custom
 temp.js
 
+.idea
+
 # dependencies
 /node_modules
 /.pnp
