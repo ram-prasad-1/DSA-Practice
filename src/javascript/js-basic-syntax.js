@@ -83,6 +83,7 @@ switch (x) {
 // Mix snippets
 
 // generate array of n items
+// Trick: Array(n) slots are totally empty. No memory assigned yet.
 [...Array(n)].map(() => {});
 
 // swap
