@@ -3,6 +3,7 @@ const num = +'55';
 
 // num toFixed Decimal
 // NOTE: num.toFixed() methods rounds a number if necessary.
+// returns a string
 let numObj = 12345.6389;
 numObj.toFixed(); // 12345
 numObj.toFixed(2); // 12345.64
