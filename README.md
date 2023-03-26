@@ -1,5 +1,10 @@
 # DS Algo
 
+## Mix
+
+**Log full object in NodeJS:**  
+`console.dir(obj, { depth: null });`
+
 ## Resources
 
 ### [Tech Interview Handbook](https://techinterviewhandbook.org/)
