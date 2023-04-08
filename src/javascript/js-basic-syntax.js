@@ -106,8 +106,18 @@ fn.bind(thisArg); // returns new function
 fn.apply(thisArg, argArr);
 fn.call(thisArg, ...argArr);
 
-// Mix snippets
+// Prototypes
+`
+When it comes to inheritance, JavaScript only has one construct: objects.
+Each object has a private property which holds a link to another object
+called its prototype.
+`;
+x = obj.__proto__; // prototype object of obj
+// function also have this additional property called prototype.
+// it is used to set __proto__ when creating new fn objects.
+x = fn.prototype;
 
+// Mix snippets
 // generate array of n items
 // Trick: Array(n) slots are totally empty. No memory assigned yet.
 [...Array(n)].map(() => {});
