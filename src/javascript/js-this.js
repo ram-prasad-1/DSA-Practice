@@ -12,6 +12,7 @@ Note:
   As it doesn't define it's own execution context.
 - this is not inheritable. It will always be either global obj or obj to the left of the dot
   (or undefined in case of strict mode).
+- ES modules have this = undefined by default.
 `;
 
 const test = {

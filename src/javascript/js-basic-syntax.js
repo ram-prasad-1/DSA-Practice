@@ -58,6 +58,7 @@ obj[x] = 10; // computed property name
 // type
 let y = typeof x === 'object'; // object, function, boolean, string, number
 // typeof null === 'object'; => true
+// typeof NaN === 'number; => true
 Array.isArray(x);
 console.log(x === undefined);
 
