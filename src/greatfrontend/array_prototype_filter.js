@@ -1,6 +1,7 @@
 // https://www.greatfrontend.com/questions/javascript/array-filter
-Array.prototype.myCustomFilter = function (fn) {
-  const filtered = []; // it will receive all values that match to condition passed in fn callback.
+// Trick: it will be called as arr.myFn() so this object = arr here.
+Array.prototype.myFn = function (fn) {
+  const filtered = [];
 
   for (let i = 0; i < this.length; i++) {
     if (fn(this[i])) {
