@@ -84,6 +84,9 @@ x = null == undefined; // true
 if (x === 99) {
 }
 
+for (const [k, v] of Object.entries(obj)) {
+}
+
 while (true) {
   y = 11;
   if (x !== 100) {
