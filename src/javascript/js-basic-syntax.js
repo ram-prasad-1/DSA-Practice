@@ -2,6 +2,7 @@ let x = {};
 let n = 8;
 let thisArg = {};
 let argArr = [n, x];
+let arr = [n, x];
 let target = {};
 let source1 = {};
 let source2 = {};
@@ -62,14 +63,20 @@ obj[x] = 10; // computed property name
 Object.assign(target, source1, source2); // returns target object
 
 // type
+// Trick: There is no type known as null, array or NaN.
+// Trick2: NAN has no self type
 let y = typeof x === 'object'; // object, function, boolean, string, number
 x = typeof null === 'object'; // true
+x = typeof arr === 'object'; // true
+// Trick: NaN: Not a number but at least type is number
 x = typeof NaN === 'number'; // true
 x = x === undefined;
 Array.isArray(x);
-
-// Equality
-`
+// type coercion
+x =
+  2 +
+  '5'// Equality // 25
+  `
  - SameValue: Object.is() [check literal value]
  - IsStrictlyEqual: ===  [check actual value but NaN are different]
      - IsLooselyEqual: == [type conversion + ===]
@@ -78,7 +85,7 @@ Array.isArray(x);
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness#strict_equality_using
 `;
 x = NaN !== NaN; // only case in which (x !== x) is true is when x is NaN
-x = null == undefined; // true
+x = null == undefined; // true (falsey values are converted to boolean)
 
 // control structures
 if (x === 99) {
