@@ -118,7 +118,7 @@ called its prototype.
 `;
 x = obj.__proto__; // prototype object of obj
 // function also have this additional property called prototype.
-// it is used to set __proto__ when creating new fn objects.
+// it is used to set __proto__ when creating new objects using new Fn() syntax.
 x = fn.prototype;
 
 // Mix snippets
