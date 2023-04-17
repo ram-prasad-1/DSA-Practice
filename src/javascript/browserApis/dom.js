@@ -1,3 +1,4 @@
+let x;
 // page load
 // <script src="myScript.js" defer></script> // will execute when dom is ready. put anywhere
 // <link rel="stylesheet" href="css/style.css">  (for reference)
@@ -5,7 +6,7 @@ window.addEventListener('DOMContentLoaded', () => {});
 window.onload = () => {};
 
 // query
-document.querySelector('.hero');
+const el = document.querySelector('.hero');
 document.querySelectorAll('');
 
 // style
@@ -19,7 +20,8 @@ el.classList.toggle('visible');
 
 // events
 el.addEventListener('click', (e) => {
-  e.target.classList.remove('foo');
+  console.log(e.target); // get the element
+  console.log(e.target.value);
 });
 
 // Manipulate DOM
@@ -28,3 +30,6 @@ const newContent = document.createTextNode('Hi there!');
 newDiv.appendChild(newContent);
 newDiv.remove();
 newDiv.parentNode;
+
+x = el.children; // Only includes elements
+x = el.childNodes; // elements + text + comments

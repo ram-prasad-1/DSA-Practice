@@ -1,0 +1,10 @@
+<input type="text" name="" id="inp">
+
+<script>
+  let inputBox = document.getElementById("inp");
+  inputBox.addEventListener("input", (event)=>{
+    console.log(event.target) //Gets the element
+    console.log(event.target.value) //Gets a property of the element
+    event.target.style.color = "red"; //Modifies the css property of the element
+  });
+</script>
