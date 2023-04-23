@@ -75,7 +75,7 @@ Array.isArray(x);
 // type coercion
 x =
   2 +
-  '5'// Equality // 25
+  '5' // Equality // 25
   `
  - SameValue: Object.is() [check literal value]
  - IsStrictlyEqual: ===  [check actual value but NaN are different]
@@ -116,6 +116,7 @@ fn.bind(thisArg); // returns new function
 // Trick: apply needs array
 fn.apply(thisArg, argArr);
 fn.call(thisArg, ...argArr);
+Array.prototype.filter.call([4, null, 66], (value) => value);
 
 // Prototypes
 `

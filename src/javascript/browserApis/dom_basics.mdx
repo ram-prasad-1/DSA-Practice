@@ -2,9 +2,11 @@
 
 EventTarget ← Node ← Element
 
+`new DOMParser().parseFromString('<div>...</div>');`
+
 ### Async and Defer Scripts
 
-All scripts starts downloading immediately. 
+All scripts starts downloading immediately.
 But async and defer scripts don't block HTML parsing and DOM building.
 
 - Async scripts are executed the moment they are downloaded.
@@ -13,7 +15,7 @@ But async and defer scripts don't block HTML parsing and DOM building.
 ### URLSearchParams
 
 Defines utility methods to work with the query string of a URL.
-- The URLSearchParams constructor does not parse full URLs.  
+- The URLSearchParams constructor does not parse full URLs.
   However, it will strip an initial leading ? off of a string, if present.
 - For full URLs use `new URL()`.
 - use encodeURIComponent() to avoid some parsing issues
@@ -40,7 +42,7 @@ onmessage = (e) => {
 
 ### Broadcast Channel API
 
-The Broadcast Channel API allows basic communication between browsing contexts 
+The Broadcast Channel API allows basic communication between browsing contexts
 (that is, windows, tabs, frames, or iframes) and workers on the same origin.
 
 ```js
