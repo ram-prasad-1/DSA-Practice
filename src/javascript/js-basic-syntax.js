@@ -73,10 +73,9 @@ x = typeof NaN === 'number'; // true
 x = x === undefined;
 Array.isArray(x);
 // type coercion
-x =
-  2 +
-  '5' // Equality // 25
-  `
+x = 2 + '5'; // Equality // 25
+
+`
  - SameValue: Object.is() [check literal value]
  - IsStrictlyEqual: ===  [check actual value but NaN are different]
      - IsLooselyEqual: == [type conversion + ===]
