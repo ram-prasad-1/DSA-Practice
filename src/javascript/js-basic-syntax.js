@@ -75,14 +75,6 @@ Array.isArray(x);
 // type coercion
 x = 2 + '5'; // Equality // 25
 
-`
- - SameValue: Object.is() [check literal value]
- - IsStrictlyEqual: ===  [check actual value but NaN are different]
-     - IsLooselyEqual: == [type conversion + ===]
- - SameValueZero: no builtin [check actual value with NaN are same]
-
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness#strict_equality_using
-`;
 x = NaN !== NaN; // only case in which (x !== x) is true is when x is NaN
 x = null == undefined; // true (falsey values are converted to boolean)
 
@@ -135,3 +127,13 @@ x = fn.prototype;
 
 // swap
 const swap = (arr, a, b) => ([arr[b], arr[a]] = [arr[a], arr[b]]);
+
+`
+Equality Comparison in JS
+ - SameValue: Object.is() [check literal value]
+ - IsStrictlyEqual: ===  [check actual value but NaN are different]
+     - IsLooselyEqual: == [type conversion + ===]
+ - SameValueZero: no builtin [check actual value with NaN are same]
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness#strict_equality_using
+`;
