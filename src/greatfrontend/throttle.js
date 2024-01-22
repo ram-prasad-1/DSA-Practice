@@ -1,18 +1,19 @@
-// no delay in throttle. and call immediately if the wait is over
+// no delay in throttle. and call immediately if the wait is over.
+// Trick: wake up the function manually after the wait is over.
 
 function throttle(func, wait = 0) {
-  let waitActive = false;
+  let isSleeping = false;
 
   return function (...args) {
-    if (waitActive) {
+    if (isSleeping) {
       return;
     }
 
     func.apply(this, args);
-    waitActive = true;
+    isSleeping = true;
 
     setTimeout(function () {
-      waitActive = false;
+      isSleeping = false;
     }, wait);
   };
 }
