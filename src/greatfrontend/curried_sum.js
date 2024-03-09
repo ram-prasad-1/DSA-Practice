@@ -6,7 +6,7 @@ https://www.greatfrontend.com/questions/javascript/curry
 Qn. sum(4)(3)(7)('.') // returns 14
 `;
 
-// Trick: always return the nested function.
+// Trick: always return the inner function.
 function sum(a) {
   let total = a;
   const _sumInner = (b) => {
