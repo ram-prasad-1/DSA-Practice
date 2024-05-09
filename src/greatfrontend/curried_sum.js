@@ -6,7 +6,9 @@ https://www.greatfrontend.com/questions/javascript/curry
 Qn. sum(4)(3)(7)('.') // returns 14
 `;
 
-// Trick: Use inner function for everything including for returning
+// Trick: Use inner function for everything including for returning.
+// Trick: A function can call itself (from it's body), that's how recursion algos work.
+// myFn.length = no of function params
 function sum(a) {
   let total = a;
   const _sumInner = (b) => {
