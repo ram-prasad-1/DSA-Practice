@@ -21,6 +21,7 @@ function getMaxValue(weights, values, weightCapacity) {
   return _getMaxValue(weights.length - 1, weightCapacity);
 }
 
+// Qn. Get max. value of the weighted items if capacity is given.
 const weights = [4, 2, 1, 10, 2];
 const values = [12, 2, 1, 4, 1];
 const capacity = 15;
