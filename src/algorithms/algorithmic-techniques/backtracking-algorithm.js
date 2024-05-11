@@ -9,35 +9,26 @@ def backtrack(path, seletionsList):
         deselect
 `;
 
-function related() {
-  const p = require('../basics/pnc-permutation.js');
-}
-
-function getPermutations(arr) {
+const getPermutations = (arr) => {
   const result = [];
-  _addPermutations([], arr, result);
+  const _traverse = (path, selectionList) => {
+    if (selectionList.length === 0) {
+      result.push([...path]);
+    }
 
+    for (const [selectIndex, selection] of selectionList.entries()) {
+      path.push(selection);
+      _traverse(
+        path,
+        selectionList.filter((_, i) => i !== selectIndex)
+      );
+      path.pop();
+    }
+  };
+
+  _traverse([], arr);
   return result;
-}
+};
 
-function _addPermutations(path = [], selectionList = [], result = []) {
-  console.log(path, selectionList);
-  if (selectionList.length === 0) {
-    result.push([...path]);
-  }
-
-  // for permutation, select means: fix this and permute the rest
-  for (const [selectIndex, selection] of selectionList.entries()) {
-    path.push(selection);
-    _addPermutations(
-      path,
-      selectionList.filter((_, i) => i !== selectIndex),
-      result
-    );
-    path.pop();
-  }
-}
-
-const data = [...Array(3)].map((_, i) => i + 1);
-const p = getPermutations(data);
-console.log(p);
+const data = [3, 5, 1];
+getPermutations(data);
