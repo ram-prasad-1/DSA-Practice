@@ -1,24 +1,19 @@
-function related() {}
-
-function getCombinations(arr, r) {
+const getCombinations = (arr) => {
   const result = [];
-  addCombinations([], arr, r, result);
-  return result;
-}
-
-function addCombinations(path, selectionList, r, result) {
-  if (path.length === r) {
+  const _traverse = (path, selectionList) => {
     result.push([...path]);
-    return;
-  }
 
-  for (const [index, selection] of selectionList.entries()) {
-    path.push(selection);
-    addCombinations(path, selectionList.slice(index + 1), r, result);
-    path.pop();
-  }
-}
+    for (const [selectIndex, selection] of selectionList.entries()) {
+      path.push(selection);
+      _traverse(path, [...selectionList].slice(selectIndex + 1));
+      path.pop();
+    }
+  };
 
-const data = [...Array(3)].map((_, i) => i + 1);
+  _traverse([], arr);
+  return result;
+};
 
-console.log(getCombinations(data, 2));
+const data = [3, 5, 1];
+const res = getCombinations(data);
+console.log(res);
