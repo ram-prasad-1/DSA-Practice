@@ -30,6 +30,7 @@ function isScorePossible(arr, targetScore) {
         if (j >= val && table[i - 1][j - val] === true) {
           table[i][j] = true;
         } else {
+          // this is carry forward.
           table[i][j] = table[i - 1][j];
         }
       }
