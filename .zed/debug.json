@@ -1,0 +1,11 @@
+[
+  {
+    "adapter": "JavaScript",
+    "label": "Debug current file",
+    "type": "node",
+    "request": "launch",
+    "program": "$ZED_FILE",
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "skipFiles": ["<node_internals>/**"]
+  }
+]
