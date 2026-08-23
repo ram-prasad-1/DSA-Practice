@@ -269,6 +269,7 @@ through engine internals and operations. Distilled from
   - `PRIMARY KEY` — single & composite
     - ⚠️ In ordinary (rowid) tables, PK columns can be NULL unless declared `NOT NULL` (legacy quirk); `INTEGER PRIMARY KEY` is the exception
   - `NOT NULL`, `UNIQUE`, `CHECK`, `DEFAULT` (literal, `CURRENT_TIMESTAMP`, or `(expression)`)
+    - ⚠ `UNIQUE` treats NULLs as all-distinct — a UNIQUE column holds many NULLs; cap it with a partial unique index
   - `FOREIGN KEY ... REFERENCES`
     - ⚠️ **Enforcement OFF by default** — `PRAGMA foreign_keys = ON;` per connection
     - `ON DELETE` / `ON UPDATE`: `CASCADE`, `SET NULL`, `SET DEFAULT`, `RESTRICT`, `NO ACTION`

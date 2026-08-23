@@ -69,6 +69,38 @@ DROP TABLE products_snapshot;
 
 
 
+-- TEMP tables live in the separate 'temp' schema: visible only to THIS
+-- connection, gone when it closes — the everyday scratch tool
+DROP TABLE IF EXISTS temp.restock_candidates;
+CREATE TEMP TABLE restock_candidates AS
+SELECT id, name FROM products WHERE in_stock = 0;
+SELECT * FROM restock_candidates;
+SELECT name FROM pragma_table_list WHERE schema = 'temp';
+-- another connection opening play.db will NOT see this table
+
+
+
+-- quirk: UNIQUE treats NULLs as all-distinct — a UNIQUE column happily
+-- holds MANY NULLs (standard SQL, but it surprises everyone once)
+DROP TABLE IF EXISTS gift_cards;
+CREATE TABLE gift_cards (
+  id   INTEGER PRIMARY KEY,
+  code TEXT UNIQUE             -- NULL = not yet issued
+);
+INSERT INTO gift_cards (code) VALUES ('A1'), (NULL), (NULL), (NULL);
+SELECT count(*) AS null_codes FROM gift_cards WHERE code IS NULL;    -- 3, no error!
+
+-- want "at most one NULL"? dedupe first (classic keep-the-min pattern),
+-- then a partial unique index enforces it from now on
+DELETE FROM gift_cards
+WHERE code IS NULL
+  AND id NOT IN (SELECT min(id) FROM gift_cards WHERE code IS NULL);
+DROP INDEX IF EXISTS one_unissued_card;
+CREATE UNIQUE INDEX one_unissued_card ON gift_cards(code IS NULL) WHERE code IS NULL;
+-- INSERT INTO gift_cards (code) VALUES (NULL);   -- uncomment → now fails
+
+
+
 -- Practice
 -- Q1. A 'coupons' table: code (PK, uppercase-only via CHECK),
 --     percent 1-90, expires DATE defaulting to +30 days
@@ -76,3 +108,5 @@ DROP TABLE products_snapshot;
 -- Q2. Verify each constraint fires by uncommenting bad inserts.
 -- Q3. What happens to stock_moves rows on DELETE of a product with
 --     ON DELETE RESTRICT? Try it.
+-- Q4. Delete the 3 NULL gift cards, insert one NULL back, and show the
+--     partial index now blocks a second one.

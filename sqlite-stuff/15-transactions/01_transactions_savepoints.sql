@@ -25,8 +25,34 @@ SELECT count(*) AS after_rollback FROM orders;  -- ...all back afterwards
 
 
 
--- a failed statement does NOT auto-rollback the transaction —
--- your app decides (this is why drivers wrap statements for you)
+-- a failed statement does NOT roll back the transaction — only the
+-- statement itself is undone; the transaction stays open and later
+-- statements still commit (your app decides whether to abandon it)
+DROP TABLE IF EXISTS strict_codes;
+CREATE TABLE strict_codes (code TEXT NOT NULL UNIQUE);
+BEGIN;
+INSERT INTO strict_codes VALUES ('A');
+-- INSERT INTO strict_codes VALUES ('A');    -- uncomment: errors, but...
+INSERT INTO strict_codes VALUES ('B');       -- ...this still runs
+COMMIT;
+SELECT * FROM strict_codes;                  -- A and B both committed
+
+
+
+-- that per-statement behavior is the constraint's CONFLICT CLAUSE,
+-- default ABORT — a constraint can pick its own resolution
+-- (unrelated to upsert's ON CONFLICT DO ... syntax):
+--   ABORT    (default) undo this statement, txn stays open
+--   ROLLBACK undo the WHOLE transaction
+--   FAIL     stop mid-statement, keep its earlier rows, txn stays open
+--   IGNORE   skip the conflicting row, no error at all
+--   REPLACE  delete the old row, insert the new one
+DROP TABLE IF EXISTS lenient_codes;
+CREATE TABLE lenient_codes (code TEXT NOT NULL UNIQUE ON CONFLICT IGNORE);
+INSERT INTO lenient_codes VALUES ('A'), ('A'), ('B');    -- no error
+SELECT count(*) AS kept FROM lenient_codes;              -- 2: the dupe vanished
+DROP TABLE strict_codes;
+DROP TABLE lenient_codes;
 
 
 
