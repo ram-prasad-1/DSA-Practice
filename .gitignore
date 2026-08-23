@@ -3,22 +3,27 @@
 # Custom
 temp.js
 
-.idea
+# local SQLite scratch databases
+sqlite-stuff/*/play.db
+sqlite-stuff/*/play.db-wal
+sqlite-stuff/*/play.db-shm
+
+.idea/
 
 # dependencies
-/node_modules
+node_modules/
 /.pnp
 .pnp.js
 
 # testing
-/coverage
+coverage/
 
 # next.js
 /.next/
 /out/
 
 # production
-/build
+build/
 
 # misc
 .DS_Store

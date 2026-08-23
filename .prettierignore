@@ -1,5 +1,10 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# prettier has no SQL parser; sqlite-stuff md/sql are hand-formatted
+# (prettier's markdown formatter would collapse the 2-blank-line sections)
+*.sql
+sqlite-stuff/
+
 # dependencies
 /node_modules
 /.pnp
