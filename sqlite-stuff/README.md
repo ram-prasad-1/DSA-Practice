@@ -83,6 +83,35 @@ sqlite3 play.db ".read 01_select_basics.sql"
   (3.39+), CROSS & self-joins, multi-table chains
   - `00_schema.sql` — same store schema, plus an empty 'Webcams' category
     and a never-ordered product for the outer-join lessons
-- *(more sections to come, numbered after `SQLITE_CONCEPTS.md`)*
+    *(sections 06+ copy this richer schema)*
+- `06-subqueries-ctes/` — scalar & correlated subqueries, IN/EXISTS,
+  derived tables, CTE chains, recursive CTEs (sequences, calendars, trees)
+- `07-set-operations/` — UNION/UNION ALL, INTERSECT, EXCEPT, join
+  equivalents (adds a `newsletter_subscribers` table)
+- `08-window-functions/` — OVER/PARTITION BY, ranking & top-N per group,
+  LAG/LEAD, frames, running totals, the LAST_VALUE gotcha
+- `09-data-types-affinity/` — storage classes, affinity rules, STRICT
+  tables + ANY, float traps, money-as-cents, collations
+- `10-dates-times/` — date function family, modifiers, timezones,
+  period grouping, gaps, cohorts
+- `11-builtin-functions/` — string, math (3.35+ extension), and utility
+  functions (printf, changes(), pragma_* table functions)
+- `12-dml/` — INSERT variants, UPDATE/DELETE (+ UPDATE FROM), UPSERT,
+  RETURNING *(mutates data in a 9000+ id range; files self-clean)*
+- `13-ddl/` — constraints & FK actions, rowid/AUTOINCREMENT/WITHOUT ROWID,
+  ALTER + the 12-step rebuild, generated columns, views & triggers,
+  schema introspection
+- `14-indexes-performance/` — index types, EXPLAIN QUERY PLAN,
+  sargability traps, ANALYZE/optimize (adds a 5000-row `events` table)
+- `15-transactions/` — BEGIN/COMMIT/ROLLBACK, savepoints, WAL,
+  BEGIN IMMEDIATE, busy_timeout, the recommended startup block
+- `16-json/` — ->/->>, json_set/remove, json_each/tree, JSON aggregates,
+  indexing JSON, JSONB (adds a `product_specs` table)
+- `17-fts-extensions/` — FTS5 (MATCH, rank, highlight/snippet, sync
+  triggers), R-Tree, generate_series
+- `18-pragmas/` — the startup block, behavior/performance pragmas,
+  integrity checks, user_version migrations
+- `19-admin-backup-cli/` — CLI dot-commands (⚠ terminal only),
+  VACUUM / VACUUM INTO, .backup/.dump, ATTACH patterns
 - `play.db` (per section folder) — your local scratch database; safe to delete
   anytime (`00_schema.sql` rebuilds it). Don't commit it.

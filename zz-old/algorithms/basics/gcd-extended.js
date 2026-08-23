@@ -9,7 +9,7 @@ function gcdExtended(a, b) {
   if (b === 0) return [a, 0, 1];
 
   const [gcd, x, y] = gcdExtended(b, a % b);
-  return [gcd, y - Math.floor(a / b) * x, x]
+  return [gcd, y - Math.floor(a / b) * x, x];
 }
 
-console.log(gcdExtended(18, 60))
+console.log(gcdExtended(18, 60));

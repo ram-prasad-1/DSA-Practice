@@ -5,6 +5,9 @@
 *.sql
 sqlite-stuff/
 
+# python-stuff files are hand-formatted around 3-blank-line sections
+python-stuff/
+
 # dependencies
 /node_modules
 /.pnp

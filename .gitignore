@@ -8,6 +8,10 @@ sqlite-stuff/*/play.db
 sqlite-stuff/*/play.db-wal
 sqlite-stuff/*/play.db-shm
 
+# python bytecode caches
+__pycache__/
+*.py[cod]
+
 .idea/
 
 # dependencies
