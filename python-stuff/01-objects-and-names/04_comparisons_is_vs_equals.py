@@ -16,30 +16,6 @@ b = [1, 2]
 print(a == b, a is b)
 
 
-
-# the classic bug: `if x:` when you mean `if x is not None:`
-def with_truthiness(items=None):
-    if not items:
-        items = ["default"]
-    return items
-
-
-def with_none_check(items=None):
-    if items is None:
-        items = ["default"]
-    return items
-
-
-print(with_truthiness([]), with_none_check([]))
-
-
-
-# is False vs not var
-for var in (False, None, 0, "", [], "x"):
-    print(repr(var), var is False, not var)
-
-
-
 # PEP 8 still prefers truthiness for booleans: `if flag:` over `if flag is True:`
 flag = True
 if flag:

@@ -15,37 +15,6 @@ print(bad.__defaults__)
 
 
 
-# the fix: a None sentinel, with a fresh object per call
-def good(item, bucket=None):
-    if bucket is None:
-        bucket = []
-    bucket.append(item)
-    return bucket
-
-
-print(good("a"))
-print(good("b"))
-
-
-
-# immutable defaults are safe — they cannot be mutated at all
-def scale(values, factor=2):
-    return [v * factor for v in values]
-
-
-print(scale([1, 2, 3]))
-
-
-
-# the same trap with dicts and sets
-def register(name, seen=set()):
-    seen.add(name)
-    return seen
-
-
-print(register("x"), register("y"))
-
-
 
 # Practice
 # Q1. Rewrite register() so each call starts with an empty set.
